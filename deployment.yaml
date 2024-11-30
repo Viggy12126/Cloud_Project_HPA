@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chat-test-deployment
+  labels:
+    app: chat-test
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: chat-test
+  template:
+    metadata:
+      labels:
+        app: chat-test
+    spec:
+      containers:
+      - name: chat-test
+        image: raven3004/chat-test:latest
+        ports:
+        - containerPort: 5000
+        resources:
+          requests:
+            cpu: 100m
+            memory: 128Mi
+          limits:
+            cpu: 200m
+            memory: 256Mi

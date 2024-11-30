@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Chat Test App</title>
+  </head>
+  <body>
+    <h1>Chat Test App</h1>
+    <form method="post">
+      <label>Username:</label> <input type="text" name="username"><br>
+      <label>Message:</label> <input type="text" name="message"><br>
+      <input type="submit" value="Send">
+    </form>
+    <h2>Messages:</h2>
+    {% for msg in messages %}
+      <p><strong>{{ msg.username }}</strong> [{{ msg.timestamp }}]: {{ msg.message }}</p>
+    {% endfor %}
+  </body>
+</html>
